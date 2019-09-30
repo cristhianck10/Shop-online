@@ -1,0 +1,74 @@
+<ion-menu side="start" menuId="first">
+    <ion-header>
+      <ion-toolbar color="header-menu" class="header-menu">
+        <ion-title><ion-icon name="person"></ion-icon>{{email}}</ion-title>
+        {{nick}}
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item><ion-button fill="clear"(click)="home()"><ion-icon name="home"></ion-icon> Inicio</ion-button></ion-item>
+        <ion-item><ion-button fill="clear"(click)="compras()"><ion-icon name="pricetags"></ion-icon> Mis Compras</ion-button></ion-item>
+        <ion-item><ion-button fill="clear"(click)="categoria()"><ion-icon name="list-box"></ion-icon> Categorias</ion-button></ion-item>
+        <ion-item><ion-button fill="clear"(click)="ayuda()"><ion-icon name="help-circle-outline"></ion-icon> Ayuda</ion-button></ion-item>
+        <ion-item><ion-button fill="clear" (click)="cerrar_sesion()"><ion-icon name="power"></ion-icon> Cerrar sesión</ion-button></ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+  
+  <ion-header>
+      <ion-toolbar color="header">
+        <ion-title class="text_title">
+          SHOP ONLINE
+          <ion-icon name="cart"></ion-icon>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>  
+       <ion-item>
+           <ion-button fill="clear" (click)="openFirst()" >
+            <ion-icon slot="icon-only" name="reorder"></ion-icon>
+          </ion-button>
+          <ion-toolbar>
+            <ion-searchbar type="text"(ionInput)="filtroSearch($event)"></ion-searchbar>
+          </ion-toolbar>  
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="isItemAvailable">
+          <ion-item *ngFor="let item of productos">
+            {{ item.nombre }}
+          </ion-item>
+        </ion-list>
+  
+
+        <div>
+          <ion-list>
+              <ion-item *ngFor="let po of producto">
+                  <ion-card>
+                      <ion-card-header>
+                        <ion-card-content >
+                            <img class="img_c" src="{{po.img}}">
+                        </ion-card-content>
+                        <br>
+                        <ion-card-subtitle class="sub">${{po.precio}}</ion-card-subtitle>
+                      </ion-card-header>
+                      <div class="compra">
+                          <h2>{{po.nombre}}</h2>
+                          <br>
+                          <ion-label position="fixed">Cantidad</ion-label>
+                          <ion-input type="number" value="1" [(ngModel)]="cantidad" name="cantidad"></ion-input>
+                          <br>
+                          <ion-button (click)=agregarAlCarrito()>Comprar</ion-button>
+                          <br>
+                      </div>  
+                      <div>
+                        <h2>Caracteristicas</h2>
+                        {{po.detalle}}
+                      </div>
+                    </ion-card>              
+              </ion-item>
+          </ion-list>
+        </div>
+</ion-content>

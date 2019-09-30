@@ -1,0 +1,38 @@
+.text_title{
+    color: white;
+    text-align: center;
+}
+.text_h{
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+.my-custom-menu {
+    --width: 500px;
+}
+
+.header-menu{
+    background-color: #19C9FF;
+}
+.img_c{
+  width: 80px;
+  height: 80px;
+}
+
+.text_c{
+    font-size: 8px;
+}
+
+.cent{
+    text-align: center;
+}
+
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

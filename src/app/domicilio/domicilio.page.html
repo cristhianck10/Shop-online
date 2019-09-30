@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="header">
+      <ion-title class="text_title">
+        SHOP ONLINE
+        <ion-icon name="cart"></ion-icon>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <br><br>
+  <div style="text-align: center">
+    <ion-item>
+      <ion-label position="floating">Ingrese su direccion</ion-label>
+      <ion-input [(ngModel)]="direccion" name="direccion"></ion-input>
+    </ion-item>
+    <br><br>
+    <div style="text-align: center"> 
+        <ion-item>
+            <ion-label>Costo Domicilio</ion-label><br>
+
+            <ion-item>
+              <ion-label>$5000</ion-label><br>
+            </ion-item>
+          </ion-item>
+    </div>
+    <br><br>
+    <div style="text-align: center"> 
+        <ion-item>
+            <ion-label>Total:</ion-label><br>
+
+            <ion-item>
+              <ion-label>${{total}}</ion-label><br>
+            </ion-item>
+          </ion-item>
+    </div>
+  </div>
+  <div style="text-align: center">
+    <br>
+    <ion-button color="tertiary" (click)="siguiente()" >Siguiente</ion-button>
+  </div>
+</ion-content>

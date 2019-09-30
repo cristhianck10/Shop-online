@@ -1,0 +1,193 @@
+<ion-menu side="start" menuId="first">
+  <ion-header>
+    <ion-toolbar color="header-menu" class="header-menu">
+      <ion-title><ion-icon name="person"></ion-icon>{{email}}</ion-title>
+      {{nick}}
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item><ion-button fill="clear"(click)="home()"><ion-icon name="home"></ion-icon> Inicio</ion-button></ion-item>
+      <ion-item><ion-button fill="clear"(click)="compras()"><ion-icon name="pricetags"></ion-icon> Mis Compras</ion-button></ion-item>
+      <ion-item><ion-button fill="clear"(click)="categoria()"><ion-icon name="list-box"></ion-icon> Categorias</ion-button></ion-item>
+      <ion-item><ion-button fill="clear"(click)="ayuda()"><ion-icon name="help-circle-outline"></ion-icon> Ayuda</ion-button></ion-item>
+      <ion-item><ion-button fill="clear" (click)="cerrar_sesion()"><ion-icon name="power"></ion-icon> Cerrar sesión</ion-button></ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet main></ion-router-outlet>
+
+<ion-header>
+    <ion-toolbar color="header">
+      <ion-title class="text_title">
+        SHOP ONLINE
+        <ion-icon name="cart"></ion-icon>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>  
+     <ion-item>
+         <ion-button fill="clear" (click)="openFirst()" >
+          <ion-icon slot="icon-only" name="reorder"></ion-icon>
+        </ion-button>
+        <ion-toolbar>
+          <ion-searchbar type="text"(ionInput)="filtroSearch($event)"></ion-searchbar>
+        </ion-toolbar>  
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="isItemAvailable">
+        <ion-item *ngFor="let item of productos">
+          {{ item.nombre }}
+        </ion-item>
+      </ion-list>
+    <div class="text_h">
+        <ion-label><strong>Categorias</strong></ion-label>
+    </div>
+    <div>
+      <ion-list>
+        <ion-item>
+            <button (click)="refCategoria(1)">
+            <ion-card>
+                <ion-card-header slot="start">
+                  <ion-card-title class="text_c">Tecnologia</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <img class="img_c" src="./../../assets/icon/tecnologia.jpg" alt="">
+                </ion-card-content>
+            </ion-card>
+            </button>
+            <button (click)="refCategoria(2)">
+            <ion-card>
+                <ion-card-header>
+                  <ion-card-title class="text_c" >Inmuebles</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <img class="img_c" src="./../../assets/icon/inmueble.jpg" alt="">
+                </ion-card-content>
+            </ion-card>
+            </button>
+            <button (click)="refCategoria(3)">
+            <ion-card>
+                <ion-card-header slot="end">
+                  <ion-card-title class="text_c">Deportes</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <img class="img_c" src="./../../assets/icon/deportes.jpg" alt="">
+                </ion-card-content>
+            </ion-card>
+            </button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <br>
+    <div class="text_h">
+        <ion-label><strong>Productos</strong></ion-label>
+    </div>
+    <div>
+      
+        <ion-list>
+            <ion-item>
+                <button (click)="producto(12)">
+                    <ion-card>
+                        <ion-card-header slot="start">
+                          <ion-card-title class="text_c">Predator</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img class="img_c" src="./../../assets/productos/12.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$21000000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+                <button (click)="producto(10)">
+                    <ion-card>
+                        <ion-card-header>
+                          <ion-card-title class="text_c" >Sofa marron</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img class="img_c" src="./../../assets/productos/10.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$400000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+                <button (click)="producto(8)">
+                    <ion-card>
+                        <ion-card-header slot="end">
+                          <ion-card-title class="text_c">Silla Gammer</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img class="img_c" src="./../../assets/productos/8.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$400000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+            </ion-item>
+            <ion-item>
+                <button (click)="producto(14)">
+                    <ion-card>
+                        <ion-card-header>
+                          <ion-card-title>Smart Tv Samsung</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img src="./../../assets/productos/14.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$5000000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+            </ion-item>
+            <ion-item>
+                <button (click)="producto(5)">
+                    <ion-card>
+                        <ion-card-header slot="start">
+                          <ion-card-title class="text_c">Proteina</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img class="img_c" src="./../../assets/productos/5.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$70000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+                <button (click)="producto(4)">
+                    <ion-card>
+                        <ion-card-header>
+                          <ion-card-title class="text_c" >Mancuerna</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img class="img_c" src="./../../assets/productos/4.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$40000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+                <button (click)="producto(13)">
+                    <ion-card>
+                        <ion-card-header slot="end">
+                          <ion-card-title class="text_c">Samsung a30</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img class="img_c" src="./../../assets/productos/13.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$600000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+            </ion-item>
+            <ion-item>
+                <button (click)="producto(2)">
+                    <ion-card>
+                        <ion-card-header>
+                          <ion-card-title>Balon de futbol americano</ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <img src="./../../assets/productos/2.jpg" alt="">
+                        </ion-card-content>
+                        <ion-card-subtitle clas="cent">$90000</ion-card-subtitle>
+                    </ion-card>
+                </button>
+            </ion-item>
+          </ion-list>
+
+    </div>
+
+
+
+
+  </ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="header">
+    <ion-title class="text_title">
+      SHOP ONLINE
+      <ion-icon name="cart"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header >
+
+<ion-content fullscreen>
+  <div class="text_h">
+      <ion-label><strong>Crear Cuenta</strong></ion-label>
+
+      <ion-list>
+          <ion-item>
+              <ion-label position="stacked">Email<ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required type="text"  [(ngModel)]="email"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+              <ion-label position="stacked">Contraseña <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required type="password"  [(ngModel)]="pass"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Cedula <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required type="text"  [(ngModel)]="cedula"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Numero de tarjeta</ion-label>
+              <ion-input required type="text"  [(ngModel)]="tarjeta"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Nombre del usuario <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required type="text"  [(ngModel)]="nick"></ion-input>
+          </ion-item>
+        </ion-list>
+            <div class="ion-padding" >
+                <ion-button size="small" color="light" expand="block" type="submit" (click)="continueRegister()">Crear Cuenta</ion-button>
+                <br>
+                <ion-button size="small" color="light" expand="block" type="submit" (click)="formLogin()">Iniciar sesión</ion-button>
+            </div>
+  </div>
+
+</ion-content>
